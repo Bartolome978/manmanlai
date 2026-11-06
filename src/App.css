@@ -1,0 +1,143 @@
+.app {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 32px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+header {
+  text-align: center;
+}
+
+h1 {
+  margin: 0;
+  font-size: 2.5rem;
+  color: var(--accent);
+}
+
+.subtitle {
+  margin: 4px 0 0;
+  color: var(--muted);
+}
+
+.stats {
+  display: flex;
+  justify-content: space-between;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+/* ---- Flashcard with a 3D flip ---- */
+.card {
+  all: unset;
+  cursor: pointer;
+  height: 280px;
+  perspective: 1000px;
+}
+
+.card:focus-visible .card-inner {
+  outline: 3px solid var(--accent);
+  outline-offset: 4px;
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.5s;
+  transform-style: preserve-3d;
+  border-radius: 16px;
+}
+
+.card.flipped .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-face {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgb(0 0 0 / 0.06);
+  backface-visibility: hidden;
+}
+
+.back {
+  transform: rotateY(180deg);
+}
+
+.hanzi {
+  font-size: 4.5rem;
+  line-height: 1;
+}
+
+.hanzi.small {
+  font-size: 2.5rem;
+}
+
+.pinyin {
+  font-size: 1.6rem;
+  color: var(--accent);
+}
+
+.english {
+  font-size: 1.2rem;
+  color: var(--muted);
+}
+
+.hint {
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+/* ---- Buttons ---- */
+.actions {
+  display: flex;
+  gap: 12px;
+}
+
+.actions button {
+  flex: 1;
+  padding: 14px;
+  font: inherit;
+  font-size: 1rem;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.actions button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.primary {
+  background: var(--accent);
+  color: var(--accent-text);
+  border: none;
+}
+
+.secondary {
+  background: var(--surface);
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+
+.done {
+  text-align: center;
+  padding: 32px 16px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+}
+
+.done h2 {
+  margin-top: 0;
+}
