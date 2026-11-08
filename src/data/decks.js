@@ -1,0 +1,180 @@
+import starterWords from './words.js'
+
+// Each word is written as [id, hanzi, pinyin, english] to keep this file easy to edit.
+// The id (for example 'hsk5-l1-03') is the word's permanent name: progress is saved
+// against it, and it will become the primary key if the words move into a database.
+// Rules for ids:
+//   - never change or reuse an existing id (fixing a typo in the hanzi is fine);
+//   - a new word gets the next unused number for its deck, wherever you put the row,
+//     so you are free to insert words in the middle or reorder them.
+function toWords(rows) {
+  return rows.map(([id, hanzi, pinyin, english]) => ({ id, hanzi, pinyin, english }))
+}
+
+const decks = [
+  {
+    id: 'starter',
+    group: 'Starter',
+    label: 'Starter',
+    title: '入门词语',
+    english: 'First words',
+    words: starterWords,
+  },
+
+  // ---- HSK 标准教程 5 上 · Unit 1 了解生活 Understanding Life ----
+  {
+    id: 'hsk5-l1',
+    group: 'HSK 5 上 · 第一单元 了解生活',
+    label: '第1课 · Lesson 1',
+    title: '爱的细节',
+    english: 'Details of Love',
+    words: toWords([
+      ['hsk5-l1-01', '细节', 'xìjié', 'detail'],
+      ['hsk5-l1-02', '电台', 'diàntái', 'radio station'],
+      ['hsk5-l1-03', '恩爱', "ēn'ài", '(of a couple) loving, devoted'],
+      ['hsk5-l1-04', '对比', 'duìbǐ', 'to compare, to contrast'],
+      ['hsk5-l1-05', '入围', 'rùwéi', 'to be shortlisted'],
+      ['hsk5-l1-06', '评委', 'píngwěi', 'judge, member of a judging panel'],
+      ['hsk5-l1-07', '如何', 'rúhé', 'how'],
+      ['hsk5-l1-08', '瘫痪', 'tānhuàn', 'to be paralysed'],
+      ['hsk5-l1-09', '离婚', 'líhūn', 'to divorce'],
+      ['hsk5-l1-10', '自杀', 'zìshā', 'to commit suicide'],
+      ['hsk5-l1-11', '抱怨', 'bàoyuàn', 'to complain'],
+      ['hsk5-l1-12', '爱护', 'àihù', 'to take good care of'],
+      ['hsk5-l1-13', '婚姻', 'hūnyīn', 'marriage'],
+      ['hsk5-l1-14', '吵架', 'chǎojià', 'to quarrel'],
+      ['hsk5-l1-15', '相敬如宾', 'xiāngjìng rúbīn', '(of a couple) to respect each other like guests'],
+      ['hsk5-l1-16', '暗暗', "àn'àn", 'secretly, to oneself'],
+      ['hsk5-l1-17', '轮', 'lún', 'to take turns'],
+      ['hsk5-l1-18', '不耐烦', 'bú nàifán', 'impatient'],
+      ['hsk5-l1-19', '靠', 'kào', 'to lean against'],
+      ['hsk5-l1-20', '肩膀', 'jiānbǎng', 'shoulder'],
+      ['hsk5-l1-21', '喊', 'hǎn', 'to shout, to call'],
+      ['hsk5-l1-22', '伸', 'shēn', 'to stretch, to extend'],
+      ['hsk5-l1-23', '手指', 'shǒuzhǐ', 'finger'],
+      ['hsk5-l1-24', '歪歪扭扭', 'wāiwāiniǔniǔ', 'crooked, askew'],
+      ['hsk5-l1-25', '递', 'dì', 'to hand over, to pass'],
+      ['hsk5-l1-26', '脑袋', 'nǎodai', 'head'],
+      ['hsk5-l1-27', '女士', 'nǚshì', 'lady, madam'],
+      ['hsk5-l1-28', '叙述', 'xùshù', 'to narrate, to recount'],
+      ['hsk5-l1-29', '居然', 'jūrán', 'unexpectedly, to one’s surprise'],
+      ['hsk5-l1-30', '催', 'cuī', 'to urge, to hurry'],
+      ['hsk5-l1-31', '等待', 'děngdài', 'to wait'],
+      ['hsk5-l1-32', '蚊子', 'wénzi', 'mosquito'],
+      ['hsk5-l1-33', '半夜', 'bànyè', 'midnight'],
+      ['hsk5-l1-34', '叮', 'dīng', '(of insects) to bite, to sting'],
+      ['hsk5-l1-35', '老婆', 'lǎopo', 'wife'],
+      ['hsk5-l1-36', '吵', 'chǎo', 'to make a noise; noisy'],
+    ]),
+  },
+  {
+    id: 'hsk5-l2',
+    group: 'HSK 5 上 · 第一单元 了解生活',
+    label: '第2课 · Lesson 2',
+    title: '留串钥匙给父母',
+    english: 'Leaving a Bunch of Keys to Our Parents',
+    words: toWords([
+      ['hsk5-l2-01', '串', 'chuàn', 'bunch, string (measure word)'],
+      ['hsk5-l2-02', '一辈子', 'yíbèizi', 'all one’s life'],
+      ['hsk5-l2-03', '农村', 'nóngcūn', 'countryside'],
+      ['hsk5-l2-04', '屋（子）', 'wū(zi)', 'house, room'],
+      ['hsk5-l2-05', '断', 'duàn', 'to cut off, to stop'],
+      ['hsk5-l2-06', '以来', 'yǐlái', 'since'],
+      ['hsk5-l2-07', '姥姥', 'lǎolao', 'grandma (mother’s mother)'],
+      ['hsk5-l2-08', '舅舅', 'jiùjiu', 'uncle (mother’s brother)'],
+      ['hsk5-l2-09', '姑姑', 'gūgu', 'aunt (father’s sister)'],
+      ['hsk5-l2-10', '坚决', 'jiānjué', 'resolute, determined'],
+      ['hsk5-l2-11', '打工', 'dǎgōng', 'to work for others, to do a temporary job'],
+      ['hsk5-l2-12', '挣', 'zhèng', 'to earn'],
+      ['hsk5-l2-13', '县', 'xiàn', 'county'],
+      ['hsk5-l2-14', '套', 'tào', 'set, suite (measure word)'],
+      ['hsk5-l2-15', '装修', 'zhuāngxiū', 'to decorate (a house, room, etc.)'],
+      ['hsk5-l2-16', '不得了', 'bùdéliǎo', 'extremely, exceedingly'],
+      ['hsk5-l2-17', '醉', 'zuì', 'to be drunk'],
+      ['hsk5-l2-18', '强烈', 'qiángliè', 'strong, intense'],
+      ['hsk5-l2-19', '夜', 'yè', 'night'],
+      ['hsk5-l2-20', '锁', 'suǒ', 'lock; to lock up'],
+      ['hsk5-l2-21', '临', 'lín', 'about to, just before'],
+      ['hsk5-l2-22', '悄悄', 'qiāoqiāo', 'quietly, secretly'],
+      ['hsk5-l2-23', '晒', 'shài', 'to dry in the sun'],
+      ['hsk5-l2-24', '被子', 'bèizi', 'quilt'],
+      ['hsk5-l2-25', '长途', 'chángtú', 'long-distance'],
+      ['hsk5-l2-26', '冻', 'dòng', 'to freeze, to feel very cold'],
+      ['hsk5-l2-27', '想象', 'xiǎngxiàng', 'to imagine'],
+      ['hsk5-l2-28', '灰尘', 'huīchén', 'dust, dirt'],
+      ['hsk5-l2-29', '亮', 'liàng', 'bright; to shine'],
+      ['hsk5-l2-30', '微笑', 'wēixiào', 'to smile; smile'],
+      ['hsk5-l2-31', '温暖', 'wēnnuǎn', 'warm; to make warm'],
+      ['hsk5-l2-32', '立刻', 'lìkè', 'at once, immediately'],
+      ['hsk5-l2-33', '扑', 'pū', 'to pounce on, to rush at'],
+      ['hsk5-l2-34', '卧室', 'wòshì', 'bedroom'],
+      ['hsk5-l2-35', '铺', 'pū', 'to spread, to unfold'],
+      ['hsk5-l2-36', '飘', 'piāo', 'to float (in the air), to waft'],
+      ['hsk5-l2-37', '阵', 'zhèn', 'a burst, a spell (measure word)'],
+      ['hsk5-l2-38', '感受', 'gǎnshòu', 'to feel; feeling'],
+      ['hsk5-l2-39', '流泪', 'liúlèi', 'to shed tears'],
+    ]),
+  },
+  {
+    id: 'hsk5-l3',
+    group: 'HSK 5 上 · 第一单元 了解生活',
+    label: '第3课 · Lesson 3',
+    title: '人生有选择，一切可改变',
+    english: 'Having Choices in Life Makes Change Possible',
+    words: toWords([
+      ['hsk5-l3-01', '人生', 'rénshēng', 'life'],
+      ['hsk5-l3-02', '工人', 'gōngrén', 'worker'],
+      ['hsk5-l3-03', '稳定', 'wěndìng', 'stable'],
+      ['hsk5-l3-04', '待遇', 'dàiyù', 'pay and benefits'],
+      ['hsk5-l3-05', '发愁', 'fāchóu', 'to worry'],
+      ['hsk5-l3-06', '平静', 'píngjìng', 'calm, peaceful'],
+      ['hsk5-l3-07', '帆船', 'fānchuán', 'sailing boat'],
+      ['hsk5-l3-08', '撞', 'zhuàng', 'to bump against, to crash into'],
+      ['hsk5-l3-09', '艘', 'sōu', 'measure word for boats and ships'],
+      ['hsk5-l3-10', '航行', 'hángxíng', 'to sail, to navigate'],
+      ['hsk5-l3-11', '积蓄', 'jīxù', 'savings; to save'],
+      ['hsk5-l3-12', '二手', 'èrshǒu', 'second-hand'],
+      ['hsk5-l3-13', '彩虹', 'cǎihóng', 'rainbow'],
+      ['hsk5-l3-14', '包括', 'bāokuò', 'to include'],
+      ['hsk5-l3-15', '疯', 'fēng', 'to go mad; crazy'],
+      ['hsk5-l3-16', '辞职', 'cízhí', 'to quit a job'],
+      ['hsk5-l3-17', '驾驶', 'jiàshǐ', 'to drive, to pilot'],
+      ['hsk5-l3-18', '轮流', 'lúnliú', 'to take turns'],
+      ['hsk5-l3-19', '钓', 'diào', 'to fish (with a hook and line)'],
+      ['hsk5-l3-20', '顿', 'dùn', 'measure word for meals'],
+      ['hsk5-l3-21', '海鲜', 'hǎixiān', 'seafood'],
+      ['hsk5-l3-22', '傍晚', 'bàngwǎn', 'dusk, towards evening'],
+      ['hsk5-l3-23', '舒适', 'shūshì', 'comfortable, cosy'],
+      ['hsk5-l3-24', '干活儿', 'gàn huór', 'to work'],
+      ['hsk5-l3-25', '盼望', 'pànwàng', 'to look forward to'],
+      ['hsk5-l3-26', '陆地', 'lùdì', 'land'],
+      ['hsk5-l3-27', '各自', 'gèzì', 'each, respective'],
+      ['hsk5-l3-28', '勿', 'wù', 'don’t (in commands)'],
+      ['hsk5-l3-29', '时刻', 'shíkè', 'moment'],
+      ['hsk5-l3-30', '着火', 'zháohuǒ', 'to catch fire'],
+      ['hsk5-l3-31', '漏', 'lòu', '(of a container) to leak'],
+      ['hsk5-l3-32', '雷', 'léi', 'thunder'],
+      ['hsk5-l3-33', '随时', 'suíshí', 'at any time'],
+      ['hsk5-l3-34', '闪电', 'shǎndiàn', 'lightning'],
+      ['hsk5-l3-35', '击', 'jī', 'to hit, to strike'],
+      ['hsk5-l3-36', '拥抱', 'yōngbào', 'to hug, to embrace'],
+      ['hsk5-l3-37', '海里', 'hǎilǐ', 'nautical mile'],
+      ['hsk5-l3-38', '台阶', 'táijiē', 'flight of steps'],
+      ['hsk5-l3-39', '未来', 'wèilái', 'future'],
+      ['hsk5-l3-40', '太太', 'tàitai', 'wife, Mrs'],
+      ['hsk5-l3-41', '时代', 'shídài', 'era, age'],
+    ]),
+  },
+]
+
+// Safety net: two words with the same id would share progress, so stop right away if that
+// ever happens (it shows up as an error while you run the app).
+const seen = new Set()
+for (const deck of decks) {
+  for (const word of deck.words) {
+    if (seen.has(word.id)) throw new Error(`Duplicate word id "${word.id}" in deck "${deck.id}"`)
+    seen.add(word.id)
+  }
+}
+
+export default decks

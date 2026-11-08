@@ -22,6 +22,176 @@ h1 {
   color: var(--muted);
 }
 
+/* ---- Tabs at the top ---- */
+.tabs {
+  display: flex;
+  gap: 4px;
+  padding: 4px;
+  background: color-mix(in srgb, var(--accent) 6%, var(--surface));
+  border: 1px solid var(--border);
+  border-radius: 999px;
+}
+
+.tab {
+  flex: 1;
+  padding: 10px;
+  font: inherit;
+  font-size: 1rem;
+  color: var(--muted);
+  background: transparent;
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.tab:hover {
+  color: var(--text);
+}
+
+.tab.active {
+  color: var(--accent-text);
+  background: var(--accent);
+}
+
+.tab-en {
+  font-size: 0.85rem;
+  opacity: 0.8;
+}
+
+/* ---- Decks tab ---- */
+.deck-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.deck-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.deck-group-title {
+  margin: 0;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--muted);
+  letter-spacing: 0.02em;
+}
+
+.deck-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 14px 16px;
+  font: inherit;
+  text-align: left;
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  cursor: pointer;
+  transition: border-color 0.2s, transform 0.1s;
+}
+
+.deck-item:hover {
+  border-color: color-mix(in srgb, var(--accent) 50%, var(--border));
+}
+
+.deck-item:active {
+  transform: scale(0.99);
+}
+
+.deck-item.current {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 1px var(--accent);
+}
+
+.deck-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.deck-label {
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+.deck-badge {
+  padding: 2px 8px;
+  font-size: 0.75rem;
+  color: var(--accent-text);
+  background: var(--accent);
+  border-radius: 999px;
+}
+
+.deck-title {
+  font-size: 1.3rem;
+}
+
+.deck-english {
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.deck-bar {
+  height: 6px;
+  margin-top: 8px;
+  background: var(--border);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.deck-bar-fill {
+  display: block;
+  height: 100%;
+  background: var(--accent);
+  border-radius: 999px;
+  transition: width 0.3s;
+}
+
+.deck-count {
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+/* ---- Current deck banner on the Study tab ---- */
+.current-deck {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  padding: 10px 14px;
+  font: inherit;
+  text-align: left;
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.current-deck-label {
+  flex-shrink: 0;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+.current-deck-title {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.current-deck-change {
+  flex-shrink: 0;
+  font-size: 0.85rem;
+  color: var(--accent);
+}
+
 .stats {
   display: flex;
   justify-content: space-between;
@@ -93,9 +263,61 @@ h1 {
   color: var(--muted);
 }
 
+/* Always takes up the same height, so the characters below it
+   don't jump when the pinyin appears or disappears. */
+.pinyin-slot {
+  height: 2.25rem;
+  display: flex;
+  align-items: flex-end;
+}
+
 .hint {
   font-size: 0.85rem;
   color: var(--muted);
+}
+
+/* ---- Pinyin on/off switch ---- */
+.pinyin-toggle {
+  align-self: center;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px 6px 6px;
+  font: inherit;
+  font-size: 0.9rem;
+  color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 8%, var(--surface));
+  border: 1px solid color-mix(in srgb, var(--accent) 25%, transparent);
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.pinyin-toggle:hover {
+  background: color-mix(in srgb, var(--accent) 15%, var(--surface));
+}
+
+.pinyin-toggle-icon {
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  font-size: 0.8rem;
+  background: color-mix(in srgb, var(--accent) 15%, var(--surface));
+  transition: background 0.2s, color 0.2s;
+}
+
+/* When the switch is on, fill it in. */
+.pinyin-toggle.on {
+  background: var(--accent);
+  color: var(--accent-text);
+  border-color: var(--accent);
+}
+
+.pinyin-toggle.on .pinyin-toggle-icon {
+  background: var(--accent-text);
+  color: var(--accent);
 }
 
 /* ---- Buttons ---- */
@@ -140,4 +362,143 @@ h1 {
 
 .done h2 {
   margin-top: 0;
+}
+/* ---- Vocabulary panel (folds open and closed) ---- */
+.vocab-panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  overflow: hidden; /* keeps the inside within the rounded corners */
+}
+
+/* The header bar: the whole bar is one big button */
+.vocab-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 14px 16px;
+  font: inherit;
+  color: var(--text);
+  text-align: left;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.vocab-header:hover {
+  background: color-mix(in srgb, var(--accent) 5%, var(--surface));
+}
+
+.vocab-header:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: -3px;
+}
+
+.vocab-title {
+  flex: 1; /* takes up the free space, pushing the rest to the right */
+  font-size: 1rem;
+}
+
+.vocab-title-en {
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.vocab-total {
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+/* The arrow, drawn as a line; it turns upside down when the panel is open */
+.vocab-chevron {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: transform 0.25s;
+}
+
+.vocab-panel.open .vocab-chevron {
+  transform: rotate(180deg);
+}
+
+/* Two columns side by side, equal width, under the header */
+.vocab {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-top: 1px solid var(--border);
+}
+
+.vocab-column {
+  min-width: 0;
+  padding: 12px 14px;
+}
+
+/* A thin line between the two columns */
+.vocab-column + .vocab-column {
+  border-left: 1px solid var(--border);
+}
+
+.vocab-column h3 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 0 8px;
+  font-size: 0.95rem;
+}
+
+.vocab-count {
+  padding: 2px 8px;
+  font-size: 0.75rem;
+  color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 10%, var(--surface));
+  border-radius: 999px;
+}
+
+.vocab-list {
+  margin: 0;
+  padding: 0;
+  list-style: none; /* removes the bullet points */
+}
+
+.vocab-list li {
+  display: flex;
+  flex-direction: column;
+  padding: 6px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.vocab-list li:last-child {
+  border-bottom: none;
+}
+
+.vocab-hanzi {
+  font-size: 1.15rem;
+}
+
+.vocab-pinyin {
+  font-size: 0.8rem;
+  color: var(--accent);
+}
+
+.vocab-english {
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+/* On very narrow phones, stack the columns instead */
+@media (max-width: 360px) {
+  .vocab {
+    grid-template-columns: 1fr;
+  }
+
+  .vocab-column + .vocab-column {
+    border-left: none;
+    border-top: 1px solid var(--border);
+  }
 }
